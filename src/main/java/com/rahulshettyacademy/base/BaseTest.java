@@ -1,6 +1,8 @@
 package com.rahulshettyacademy.base;
 
-import com.microsoft.playwright.Page;
+import com.microsoft.playwright.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import java.io.FileInputStream;
@@ -8,7 +10,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class BaseTest {
+    protected Playwright playwright;
+    protected Browser browser;
     protected Page page;
+    protected BrowserContext context;
     protected static Properties config;
 
     static {
@@ -21,15 +26,52 @@ public class BaseTest {
         }
     }
 
+    @BeforeClass
+    public void setUpClass() {
+        playwright = Playwright.create();
+    }
+
     @BeforeMethod
-    public void setUp() {
-        PlaywrightManager.initBrowser(config);
-        page = PlaywrightManager.getPage();
+    public void setUpTest() throws InterruptedException {
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
+            .setHeadless(false));
+        context = browser.newContext();
+        page = context.newPage();
     }
 
     @AfterMethod
-    public void tearDown() {
-        PlaywrightManager.closeBrowser();
+    public void tearDownTest() throws InterruptedException {
+        // Force wait between tests
+        Thread.sleep(2000);
+
+        // Close all pages in the context
+        if (context != null) {
+            for (Page p : context.pages()) {
+                if (!p.isClosed()) {
+                    p.close();
+                }
+            }
+        }
+
+        // Close context and browser
+        if (context != null) {
+            context.close();
+        }
+        if (browser != null) {
+            browser.close();
+        }
+
+        // Reset references
+        page = null;
+        context = null;
+        browser = null;
+    }
+
+    @AfterClass
+    public void tearDownClass() {
+        if (playwright != null) {
+            playwright.close();
+        }
     }
 
     protected void navigateToHomePage() {
@@ -38,5 +80,18 @@ public class BaseTest {
 
     protected void navigateToPracticePage() {
         page.navigate(config.getProperty("practice.url"));
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    protected void forceWait(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("Thread was interrupted during force wait", e);
+        }
     }
 } 

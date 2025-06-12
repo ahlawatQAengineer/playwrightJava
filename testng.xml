@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Rahul Shetty Academy Test Suite" parallel="tests" thread-count="2">
+<suite name="Practice Page Test Suite" parallel="classes" thread-count="3">
+    <listeners>
+        <listener class-name="com.rahulshettyacademy.utils.RetryListener"/>
+        <listener class-name="com.rahulshettyacademy.utils.TestListener"/>
+    </listeners>
+    
     <test name="Practice Page Tests">
         <classes>
-            <class name="com.rahulshettyacademy.tests.PracticePageTest"/>
+            <class name="com.rahulshettyacademy.tests.InputElementsTest"/>
+            <!-- <class name="com.rahulshettyacademy.tests.WindowHandlingTest"/> -->
+            <class name="com.rahulshettyacademy.tests.TableTest"/>
+            <class name="com.rahulshettyacademy.tests.AdvancedInteractionTest"/>
         </classes>
     </test>
 </suite> 
