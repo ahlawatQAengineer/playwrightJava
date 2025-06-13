@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class BaseTest {
-    protected Playwright playwright;
-    protected Browser browser;
+    protected static Playwright playwright;
+    protected static Browser browser;
     protected Page page;
     protected BrowserContext context;
     protected static Properties config;
@@ -29,12 +29,12 @@ public class BaseTest {
     @BeforeClass
     public void setUpClass() {
         playwright = Playwright.create();
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
+            .setHeadless(false));
     }
 
     @BeforeMethod
     public void setUpTest() throws InterruptedException {
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
-            .setHeadless(false));
         context = browser.newContext();
         page = context.newPage();
     }
@@ -53,22 +53,21 @@ public class BaseTest {
             }
         }
 
-        // Close context and browser
+        // Close context
         if (context != null) {
             context.close();
-        }
-        if (browser != null) {
-            browser.close();
         }
 
         // Reset references
         page = null;
         context = null;
-        browser = null;
     }
 
     @AfterClass
     public void tearDownClass() {
+        if (browser != null) {
+            browser.close();
+        }
         if (playwright != null) {
             playwright.close();
         }

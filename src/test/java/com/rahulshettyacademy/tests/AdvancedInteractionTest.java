@@ -18,7 +18,7 @@ public class AdvancedInteractionTest extends BaseTest {
         practicePage = new PracticePage(page);
     }
 
-    @Test(description = "Test mouse hover functionality")
+    @Test(priority = 1, description = "Test mouse hover functionality")
     public void testMouseHover() {
         // Perform mouse hover
         practicePage.hoverMouseOver();
@@ -31,7 +31,7 @@ public class AdvancedInteractionTest extends BaseTest {
         assertThat(page.locator(".mouse-hover-content a").nth(1)).hasText("Reload");
     }
 
-    @Test(description = "Test mouse hover interaction with dropdown items")
+    @Test(priority = 2, description = "Test mouse hover interaction with dropdown items")
     public void testMouseHoverInteraction() {
         // Hover and click top link
         page.hover("#mousehover");
@@ -48,7 +48,7 @@ public class AdvancedInteractionTest extends BaseTest {
         assertThat(page.locator("h1")).isVisible();
     }
 
-    @Test(description = "Test iframe content and interactions")
+    @Test(priority = 3, description = "Test iframe content and interactions")
     public void testIframeContent() {
         // Get the iframe
         FrameLocator frameLocator = page.frameLocator("#courses-iframe");
@@ -63,7 +63,7 @@ public class AdvancedInteractionTest extends BaseTest {
         assertThat(frameLocator.locator(".text h2")).containsText("Courses");
     }
 
-    @Test(description = "Test iframe navigation and interaction")
+    @Test(priority = 4, description = "Test iframe navigation and interaction")
     public void testIframeNavigation() {
         // Get the iframe
         FrameLocator frameLocator = page.frameLocator("#courses-iframe");
@@ -78,7 +78,7 @@ public class AdvancedInteractionTest extends BaseTest {
         assertThat(frameLocator.locator(".course-listing-title")).isVisible();
     }
 
-    @Test(description = "Test iframe form interaction")
+    @Test(priority = 5, description = "Test iframe form interaction")
     public void testIframeFormInteraction() {
         // Get the iframe
         FrameLocator frameLocator = page.frameLocator("#courses-iframe");

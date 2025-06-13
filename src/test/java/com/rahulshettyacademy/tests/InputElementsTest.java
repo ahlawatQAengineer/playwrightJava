@@ -17,7 +17,7 @@ public class InputElementsTest extends BaseTest {
         practicePage = new PracticePage(page);
     }
 
-    @Test(description = "Test all radio button selections")
+    @Test(priority = 1, description = "Test all radio button selections")
     public void testAllRadioButtons() {
         // Test each radio button
         for (int i = 0; i < 3; i++) {
@@ -32,7 +32,7 @@ public class InputElementsTest extends BaseTest {
         }
     }
 
-    @Test(description = "Test suggestion input with different types of data")
+    @Test(priority = 2, description = "Test suggestion input with different types of data")
     public void testSuggestionInputWithDifferentData() {
         // Test with alphabets
         practicePage.enterSuggestion("India");
@@ -51,7 +51,7 @@ public class InputElementsTest extends BaseTest {
         assertThat(page.locator("#autocomplete")).hasValue("New Delhi");
     }
 
-    @Test(description = "Test all dropdown options")
+    @Test(priority = 3, description = "Test all dropdown options")
     public void testAllDropdownOptions() {
         String[] options = {"option1", "option2", "option3"};
         for (String option : options) {
@@ -60,7 +60,7 @@ public class InputElementsTest extends BaseTest {
         }
     }
 
-    @Test(description = "Test checkbox combinations")
+    @Test(priority = 4, description = "Test checkbox combinations")
     public void testCheckboxCombinations() {
         // Test checking individual boxes
         for (int i = 0; i < 3; i++) {
@@ -87,7 +87,7 @@ public class InputElementsTest extends BaseTest {
         }
     }
 
-    @Test(description = "Test element visibility toggle")
+    @Test(priority = 5, description = "Test element visibility toggle")
     public void testElementVisibilityToggle() {
         // Test initial visibility
         assertThat(page.locator("#displayed-text")).isVisible();

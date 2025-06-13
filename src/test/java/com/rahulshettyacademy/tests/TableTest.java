@@ -21,7 +21,7 @@ public class TableTest extends BaseTest {
         practicePage = new PracticePage(page);
     }
 
-    @Test(description = "Test course table content and structure")
+    @Test(priority = 1, description = "Test course table content and structure")
     public void testCourseTableContent() {
         // Verify table headers
         assertThat(page.locator(".table-display th").nth(0)).hasText("Instructor");
@@ -38,7 +38,7 @@ public class TableTest extends BaseTest {
         assertThat(page.locator(".table-display tr").nth(1).locator("td").nth(2)).hasText(price);
     }
 
-    @Test(description = "Test fixed header table content and sum verification")
+    @Test(priority = 2, description = "Test fixed header table content and sum verification")
     public void testFixedHeaderTableContent() {
         // Create a list to store amounts
         List<Integer> amounts = new ArrayList<>();
@@ -63,7 +63,7 @@ public class TableTest extends BaseTest {
         assertThat(page.locator(".totalAmount")).hasText("Total Amount Collected: " + calculatedSum);
     }
 
-    @Test(description = "Test table data aggregation by city")
+    @Test(priority = 3, description = "Test table data aggregation by city")
     public void testTableAggregationByCity() {
         // Create a map to store city-wise employee count
         Map<String, Integer> cityCount = new HashMap<>();
@@ -88,7 +88,7 @@ public class TableTest extends BaseTest {
         }
     }
 
-    @Test(description = "Test table sorting functionality")
+    @Test(priority = 4, description = "Test table sorting functionality")
     public void testTableSorting() {
         // Get all amounts in original order
         List<Integer> originalAmounts = new ArrayList<>();
