@@ -8,10 +8,14 @@
     
     <test name="Practice Page Tests">
         <classes>
-            <class name="com.rahulshettyacademy.tests.InputElementsTest"/>
+<!--            <class name="com.rahulshettyacademy.tests.InputElementsTest"/>-->
             <!-- <class name="com.rahulshettyacademy.tests.WindowHandlingTest"/> -->
 <!--            <class name="com.rahulshettyacademy.tests.TableTest"/>-->
 <!--            <class name="com.rahulshettyacademy.tests.AdvancedInteractionTest"/>-->
+            <class name="com.rahulshettyacademy.tests.KeyWordTest"></class>
+
+
+
         </classes>
     </test>
-</suite> 
+</suite>

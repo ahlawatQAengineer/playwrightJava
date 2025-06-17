@@ -2,6 +2,7 @@ package com.rahulshettyacademy.tests;
 
 import com.rahulshettyacademy.base.BaseTest;
 import com.rahulshettyacademy.pages.PracticePage;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -33,22 +34,33 @@ public class InputElementsTest extends BaseTest {
     }
 
     @Test(priority = 2, description = "Test suggestion input with different types of data")
-    public void testSuggestionInputWithDifferentData() {
+    public void testSuggestionInputWithDifferentData() throws InterruptedException {
         // Test with alphabets
         practicePage.enterSuggestion("India");
+        Thread.sleep(1000);
         assertThat(page.locator("#autocomplete")).hasValue("India");
+        practicePage.clearSuggestionInput();
 
         // Test with alphanumeric
         practicePage.enterSuggestion("India123");
+        Thread.sleep(1000);
         assertThat(page.locator("#autocomplete")).hasValue("India123");
+        practicePage.clearSuggestionInput();
+
 
         // Test with special characters
         practicePage.enterSuggestion("India@#$");
+        Thread.sleep(1000);
         assertThat(page.locator("#autocomplete")).hasValue("India@#$");
+        practicePage.clearSuggestionInput();
+
+
 
         // Test with spaces
         practicePage.enterSuggestion("New Delhi");
+        Thread.sleep(1000);
         assertThat(page.locator("#autocomplete")).hasValue("New Delhi");
+        practicePage.clearSuggestionInput();
     }
 
     @Test(priority = 3, description = "Test all dropdown options")
