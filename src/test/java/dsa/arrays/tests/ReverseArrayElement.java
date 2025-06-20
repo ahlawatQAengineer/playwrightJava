@@ -6,7 +6,6 @@ public class ReverseArrayElement {
 
 
     public  static void main (String [] args){
-
         String [] inputArrayList = {"Arunachal" , "Assam", "Bengal" , "Bihar", "Chattisgarh", "Haryana", "Rajasthan" , "Sikkim", "Tripura", "TamilNadu"};
         String [] outputArray = new String[10];
         outputArray = reverseTheArray(inputArrayList);
@@ -27,8 +26,6 @@ public static String[] reverseTheArray(String[] input){
           tempString = input[i];
           input[i] = input[l-i-1];
           input[l-i-1] = tempString;
-
-
 
            i++;
         }
