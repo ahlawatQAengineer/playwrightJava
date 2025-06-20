@@ -5,18 +5,11 @@ import java.util.HashMap;
 public class HstandShstOccuringString {
 
     //Write code to print highest and secondHighest occurring string and char from a string;
-
-
     //Solution :   //iterate through value of keys entry,
     //store the value of key in highestValue
     //if key value> highestValue ---->
     //secondHighestValue = highestValue
     //key value = highestValue
-
-
-
-
-
 
 
     public static void main(String args[]){
