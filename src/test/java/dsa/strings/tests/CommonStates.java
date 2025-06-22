@@ -42,14 +42,12 @@ class CommonStates
 
             newHashMap.put(beaches, newHashMap.getOrDefault(beaches, 0) +1 );
 
-
         }
 
 
         for (String mountains :input2 ){
 
             newHashMap.put(mountains, newHashMap.getOrDefault(mountains, 0) +1);
-
 
         }
 
@@ -66,25 +64,9 @@ class CommonStates
                 System.out.println("Lets plan a trip");
             }
 
-
-
-
         }
 
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
 
 }
 

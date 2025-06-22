@@ -106,4 +106,11 @@ public class abcString {
 
 
 
+    // now i have three strings
+    //these strings have name of states -   the first one in correct order
+    //second one the string may have anagram of spme of the states present in first string
+    //third string may have substrings from states of first string or second string
+    //i need to find a list of states or substring of min length 3 which re presnt in all three strings
+
+
 }
