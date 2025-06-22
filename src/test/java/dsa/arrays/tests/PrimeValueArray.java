@@ -28,29 +28,17 @@ public class PrimeValueArray {
             for (int j = 2; j <= Math.sqrt(currentValue); j++) {
 
                 if (currentValue % j == 0) {
-
                     isPrime = false;
                     break;
                 }
             }
 
-
             if (isPrime) {
-
                 System.out.println("The given number is a prime number " + currentValue);
-
             }
 
         }
 
     }
-
-
-
-
-
-
-
-
 
 }
