@@ -5,6 +5,45 @@ public class abcString {
 
 
 
+//    String-Based Questions:
+//    Remove all vowels from a string:
+//    Given a string, remove all vowels ('a', 'e', 'i', 'o', 'u') from it and return the modified string.
+
+
+//    Reverse the words in a sentence:
+//    Given a sentence (string with words separated by spaces), reverse the words in the sentence but do not reverse the individual characters in the words.
+//
+//
+//    Check if a string is a palindrome:
+//    Given a string, check if the string is a palindrome (i.e., reads the same forward and backward), ignoring spaces, punctuation, and case sensitivity.
+//
+//
+//    Count the number of words in a string:
+//    Given a string, count the number of words in it. A word is defined as a sequence of characters separated by spaces.
+//
+//
+//    Convert a string to title case:
+//    Given a string, convert it to title case, where the first letter of each word is capitalized, and the rest of the letters are lowercase. (For example, "hello world" → "Hello World")
+//
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    1. Longest Substring Without Repeating Characters
 //    Problem:
 //    Given a string, find the length of the longest substring that does not have any repeating characters.
